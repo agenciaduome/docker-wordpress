@@ -23,6 +23,7 @@ RUN { \
 	} > /var/www/wp-cli.yml
 
 COPY docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 WORKDIR /var/www/html
 VOLUME /var/www/html
