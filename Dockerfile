@@ -22,10 +22,11 @@ RUN { \
 		echo '  - mod_rewrite'; \
 	} > /var/www/wp-cli.yml
 
+COPY docker-entrypoint.sh /entrypoint.sh
+
 WORKDIR /var/www/html
 VOLUME /var/www/html
 
 EXPOSE 80 443
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
