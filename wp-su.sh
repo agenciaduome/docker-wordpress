@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/local/bin/wp-cli.phar --allow-root "$@"
+sudo -u www-data /usr/local/bin/wp-cli.phar "$@"
