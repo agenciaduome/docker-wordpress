@@ -7,8 +7,15 @@ RUN set -ex; \
 	apt-get install -y \
 		mysql-client \
 		sudo \
+		zlib1g-dev \
 	; \
-	rm -rf /var/lib/apt/lists/*;
+	apt-get install -y \
+		--no-install-recommends ssl-cert \
+	; \
+	rm -rf /var/lib/apt/lists/*; \
+	a2enmod ssl; \
+	a2ensite default-ssl; \
+	docker-php-ext-install zip;
 
 # Install wp-cli, and allow it to regenerate .htaccess files
 # Use /usr/local/bin/wp-cli.phar to run it as root
