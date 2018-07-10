@@ -15,7 +15,8 @@ RUN set -ex; \
 	rm -rf /var/lib/apt/lists/*; \
 	a2enmod ssl; \
 	a2ensite default-ssl; \
-	docker-php-ext-install zip;
+	docker-php-ext-install zip; \
+	yes | pecl install xdebug
 
 # Install wp-cli, and allow it to regenerate .htaccess files
 # Use /usr/local/bin/wp-cli.phar to run it as root
